@@ -1,7 +1,7 @@
 require('dotenv').config();
 const AWS = require('aws-sdk');
 const Discord = require('discord.js');
-import {saveToDynamo} from './dbActions.js';
+const db = require('./dbActions.js');
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 
@@ -29,7 +29,7 @@ const decipherCommand = message => {
         message.reply('hello there');
       break;
       case('stats'):
-        saveToDynamo(docClient, message);
+        db.saveToDynamo(docClient, message);
         message.reply('ultimate master poker player');
       break;
     }
