@@ -13,7 +13,7 @@ const decipherCommand = message => {
 
   if(message.content.startsWith('/')){
 
-    switch(message.content.subStr(1)){
+    switch(message.content.substr(1)){
       case('hi'):
         msg.channel.send('hello there');
       break;
