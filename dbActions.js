@@ -11,15 +11,15 @@ module.exports ={
     }
   
   
-    docClient.put(params, (error) => {
+    docClient.put(params, (error, data) => {
       if (!error) {
         // Finally, return a message to the user stating that the app was saved
-        return msg.member.send("We've successfully received your application. We'll be in touch 😊.")
+        return;
       } else {
         throw "Unable to save record, err" + error
       }
     })
   
   }
-  
+
 }
