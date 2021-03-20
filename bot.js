@@ -15,10 +15,10 @@ const decipherCommand = message => {
 
     switch(message.content.substr(1)){
       case('hi'):
-        msg.channel.send('hello there');
+        message.channel.send('hello there');
       break;
       case('stats'):
-        msg.channel.send('ultimate master poker player');
+        message.channel.send('ultimate master poker player');
       break;
     }
 
