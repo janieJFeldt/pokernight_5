@@ -1,4 +1,4 @@
-export const saveToDynamo = (docClient, application) => {
+const saveToDynamo = (docClient, application) => {
     const params = {
       TableName: 'pokerStats',
       Item: {
@@ -21,3 +21,4 @@ export const saveToDynamo = (docClient, application) => {
   
   }
   
+  export default saveToDynamo;
