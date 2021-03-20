@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 const { saveToDynamo } = require('./dbActions');
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
-require('./dbActions');
+const db = require('./dbActions');
 
 
 AWS.config.update({
@@ -30,7 +30,7 @@ const decipherCommand = message => {
         message.reply('hello there');
       break;
       case('stats'):
-      saveToDynamo(docClient, message);
+      db.saveToDynamo(docClient, message);
         message.reply('ultimate master poker player');
       break;
     }
