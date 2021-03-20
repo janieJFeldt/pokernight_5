@@ -9,7 +9,28 @@ bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
+const decipherCommand = message => {
+
+  if(message.startsWith('/')){
+
+    switch(message.subStr(1)){
+      case('hi'):
+        msg.channel.send('hello there');
+      break;
+      case('stats'):
+        msg.channel.send('ultimate master poker player');
+      break;
+    }
+
+  }
+  else if (message.startsWith('!')){
+
+  }
+}
+
 bot.on('message', msg => {
+  decipherCommand(msg);
+  
   if (msg.content === 'ping') {
     msg.reply('pong');
     msg.channel.send('pong');
