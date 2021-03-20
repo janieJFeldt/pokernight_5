@@ -20,6 +20,7 @@ bot.on('ready', () => {
 });
 
 
+
 const decipherCommand = message => {
 
   if(message.content.startsWith('/')){
@@ -29,7 +30,7 @@ const decipherCommand = message => {
         message.reply('hello there');
       break;
       case('stats'):
-        db.saveToDynamo(docClient, message.content);
+        db.saveToDynamo(docClient, db.getDataObject(message));
         message.reply('ultimate master poker player');
       break;
     }

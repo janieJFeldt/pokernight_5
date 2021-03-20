@@ -1,4 +1,14 @@
-module.exports ={ 
+module.exports ={
+    getDataObject: function(message){
+
+    return {
+        'author':message.author,
+        'content':message.content,
+        
+    }
+    
+    }
+    ,
     saveToDynamo: function (docClient, application){
         const params = {
         TableName: 'pokerStats',
