@@ -15,32 +15,30 @@ const decipherCommand = message => {
 
     switch(message.content.substr(1)){
       case('hi'):
-        message.channel.send('hello there');
+        message.reply('hello there');
       break;
       case('stats'):
-        message.channel.send('ultimate master poker player');
+        message.reply('ultimate master poker player');
       break;
     }
 
   }
-  else if (message.startsWith('!')){
+  else if (message.content.startsWith('!')){
+    switch(message.content.substr(1)){
+      case('kick'):
+        if (msg.mentions.users.size) {
+          const taggedUser = msg.mentions.users.first();
+          msg.channel.send(`You wanted to kick: ${taggedUser.username}`);
+        } else {
+          msg.reply('Please tag a valid user!');
+        }
+      break;
 
+    }
+  
   }
 }
 
 bot.on('message', msg => {
   decipherCommand(msg);
-
-  if (msg.content === 'ping') {
-    msg.reply('pong');
-    msg.channel.send('pong');
-
-  } else if (msg.content.startsWith('!kick')) {
-    if (msg.mentions.users.size) {
-      const taggedUser = msg.mentions.users.first();
-      msg.channel.send(`You wanted to kick: ${taggedUser.username}`);
-    } else {
-      msg.reply('Please tag a valid user!');
-    }
-  }
 });
