@@ -1,7 +1,7 @@
 require('dotenv').config();
 const AWS = require('aws-sdk');
 const Discord = require('discord.js');
-import { saveToDynamo } from './dbActions';
+import saveToDynamo from '../dbActions';
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 
