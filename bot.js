@@ -1,13 +1,25 @@
 require('dotenv').config();
+const AWS = require('aws-sdk');
 const Discord = require('discord.js');
+const { saveToDynamo } = require('./dbActions');
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
+require('./dbActions');
+
+
+AWS.config.update({
+  region: process.env.AWS_DEFAULT_REGION,
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+})
+const docClient = new AWS.DynamoDB.DocumentClient();
 
 bot.login(TOKEN);
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
+
 
 const decipherCommand = message => {
 
@@ -18,6 +30,7 @@ const decipherCommand = message => {
         message.reply('hello there');
       break;
       case('stats'):
+      saveToDynamo(docClient, message);
         message.reply('ultimate master poker player');
       break;
     }
