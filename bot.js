@@ -29,7 +29,7 @@ const decipherCommand = message => {
         message.reply('hello there');
       break;
       case('stats'):
-        db.saveToDynamo(docClient, message);
+        db.saveToDynamo(docClient, {'user':message.user});
         message.reply('ultimate master poker player');
       break;
     }
