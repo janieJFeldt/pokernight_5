@@ -11,9 +11,9 @@ bot.on('ready', () => {
 
 const decipherCommand = message => {
 
-  if(message.startsWith('/')){
+  if(message.content.startsWith('/')){
 
-    switch(message.subStr(1)){
+    switch(message.content.subStr(1)){
       case('hi'):
         msg.channel.send('hello there');
       break;
@@ -30,7 +30,7 @@ const decipherCommand = message => {
 
 bot.on('message', msg => {
   decipherCommand(msg);
-  
+
   if (msg.content === 'ping') {
     msg.reply('pong');
     msg.channel.send('pong');
