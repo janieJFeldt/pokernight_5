@@ -2,6 +2,7 @@ require('dotenv').config();
 const AWS = require('aws-sdk');
 const Discord = require('discord.js');
 const db = require('./dbActions.js');
+const poker = require('./poker.js');
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 
@@ -39,14 +40,17 @@ const decipherCommand = message => {
   else if (message.content.startsWith('!')){
     switch(message.content.substr(1)){
       case('kick'):
-        if (msg.mentions.users.size) {
+        if (message.mentions.users.size) {
           const taggedUser = msg.mentions.users.first();
-          msg.channel.send(`You wanted to kick: ${taggedUser.username}`);
+          message.channel.send(`You wanted to kick: ${taggedUser.username}`);
         } else {
-          msg.reply('Please tag a valid user!');
+          message.reply('Please tag a valid user!');
         }
       break;
 
+      case('poker'):
+        poker.startPokerGame(message);
+      break;
     }
   
   }
