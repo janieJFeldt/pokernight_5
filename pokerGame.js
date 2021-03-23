@@ -56,9 +56,7 @@ module.exports ={
 
         message.awaitReactions(filter, { max: 1, time: 5000, errors: ['time'] })
             .then(collected => {
-                collected.forEach( (reaction, message) => {
-
-                });
+                console.log(collected);
             }).catch(err => {
                 console.log('error: '+err);
             })
