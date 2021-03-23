@@ -25,14 +25,14 @@ let getDeck = () => {
     let newDeck = [];
     suits.forEach(x => newDeck.push(cards.map(y=> x+y)));
 
-    return newDeck.join();
+    return newDeck;
 
 }
 
 let drawCard = deck => {
     var rand = Math.round(Math.random(deck.length-1));
 
-    return deck.join().splice(rand,deck.indexOf(','),2);
+    return deck[rand][Math.round(Math.random(deck[rand].length-1))];
 }
 
 module.exports ={
