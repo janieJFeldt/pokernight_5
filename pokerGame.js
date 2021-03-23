@@ -61,7 +61,9 @@ module.exports ={
                 });
             }).then(players =>{
                 message.channel.send(`${players}, are you ready?`);
-              });
+              }).catch(err =>{
+                  console.log(err);
+              })
 
             
 
