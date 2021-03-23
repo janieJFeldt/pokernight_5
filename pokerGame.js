@@ -35,6 +35,14 @@ let drawCard = deck => {
     return deck[rand][rand2];
 }
 
+let getRiver = (message, deck) => {
+
+    let river = [drawCard(deck),drawCard(deck),drawCard(deck)];
+
+    message.channel.send(`River: ${river.join('\n')}`);
+
+}
+
 module.exports ={
 
     startPokerGame: function(message){
@@ -45,12 +53,11 @@ module.exports ={
         let card1 = drawCard(deck);
         let card2 = drawCard(deck);
 
-        let river = [drawCard(deck),drawCard(deck),drawCard(deck)];
     
 
         message.reply('\n Hand:\n'+ card1 + '\n' + card2);
 
-        message.channel.send(`River: ${river}`);
+        getRiver(message, deck);
 
         // message.reply('\n Remaining cards: ' + deck);
     }
