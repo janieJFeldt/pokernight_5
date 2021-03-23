@@ -31,9 +31,9 @@ let getDeck = () => {
 
 let drawCard = deck => {
     var rand = Math.random(deck.length-1);
-    const suit = deck[Math.round(rand)];
-    var rand2 = Math.random(suit[suit.length-1])
-    return Math.round(rand2);
+    const suit = [deck[Math.round(rand)]];
+    var rand2 = Math.random(suit.length-1)
+    return suit[Math.round(rand2)];
 }
 
 module.exports ={
@@ -48,7 +48,7 @@ module.exports ={
         let card2 = drawCard(deck);
         deck= deck.filter(x=> x !== card2);
 
-        message.reply('\n '+ card1 + '\n' + card2);
+        message.reply('\n'+ card1 + '\n' + card2);
 
         message.reply('\n Remaining cards: ' + deck);
     }
