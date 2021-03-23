@@ -62,6 +62,8 @@ module.exports ={
                         message.reply('you joined the game.');
                     }
                 });
+            }).catch(err => {
+                console.log('error: '+err);
             })
 
             
