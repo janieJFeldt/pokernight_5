@@ -62,11 +62,10 @@ module.exports ={
         message.channel.send('\n-----{2nd}-----')
         getRiverCard(message, river);
         message.channel.send('\n-----{3rd}-----')
-
         getRiverCard(message, river);
 
 
-        // message.reply('\n Remaining cards: ' + deck);
+         message.reply('\n Remaining cards: ' + deck);
     }
 
 
