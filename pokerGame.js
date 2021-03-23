@@ -44,7 +44,7 @@ let getRiverCard = (message, river) => {
 
 module.exports ={
 
-    createGame: function(message){
+    createGame: async function(message){
         message.react('👍').then(() => message.react('👎'));
 
         const filter = (reaction, user) => {

@@ -52,7 +52,7 @@ const decipherCommand = message => {
         poker.startPokerGame(message);
       break;
       case('start'):
-        poker.createGame(message).then(players =>{
+        await poker.createGame(message).then(players =>{
           message.channel.send(`${players}, are you ready?`);
         });
       break;
