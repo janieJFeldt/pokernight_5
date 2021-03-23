@@ -31,7 +31,9 @@ let getDeck = () => {
 
 let drawCard = deck => {
     var rand = Math.random(deck.length-1);
-    return deck[Math.round(rand)];
+    const suit = deck[Math.round(rand)];
+    var rand2 = Math.random(suit[suit.length-1])
+    return Math.round(rand2);
 }
 
 module.exports ={
