@@ -35,11 +35,10 @@ let drawCard = deck => {
     return deck[rand][rand2];
 }
 
-let getRiver = (message, deck) => {
+let getRiver = (message, river) => {
 
-    let river = [drawCard(deck),drawCard(deck),drawCard(deck)];
 
-    message.channel.send(`River:\n${river.join('\n')}`);
+    message.channel.send(`River:\n${river.splice(0)}`);
 
 }
 
@@ -53,11 +52,12 @@ module.exports ={
         let card1 = drawCard(deck);
         let card2 = drawCard(deck);
 
-    
+        let river = [drawCard(deck),drawCard(deck),drawCard(deck)];
+
 
         message.reply('\n Hand:\n'+ card1 + '\n' + card2);
 
-        getRiver(message, deck);
+        getRiver(message, river);
 
         // message.reply('\n Remaining cards: ' + deck);
     }
