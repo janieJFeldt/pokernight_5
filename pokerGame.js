@@ -51,16 +51,18 @@ module.exports ={
             return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
         };
 
-        message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+        message.awaitReactions(filter, { max: 6, time: 60000, errors: ['time'] })
             .then(collected => {
-                const reaction = collected.first();
+                collected.forEach( (reaction, message) => {
 
-                if (reaction.emoji.name === '👍') {
-                    message.reply('you joined the game.');
-                }
-                
-            return collected;
+                    if (reaction.emoji.name === '👍') {
+                        message.reply('you joined the game.');
+                    }
+                });
+            }).then(collected => {
+                return collected;
             })
+
     },
 
     startPokerGame: function(message){
