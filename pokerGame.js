@@ -44,14 +44,17 @@ let getRiverCard = (message, river) => {
 
 module.exports ={
 
-    createGame: async function(message){
+    createGame: function(message){
+
         message.react('👍').then(() => message.react('👎'));
 
         const filter = (reaction, user) => {
             return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
         };
+        const collector = message.channel.createMessageCollector(filter, { time: 15000 });
 
-        message.awaitReactions(filter, { max: 12, time: 5000, errors: ['time'] })
+
+        message.awaitReactions(filter, { max: 3, time: 5000, errors: ['time'] })
             .then(collected => {
                 collected.forEach( (reaction, message) => {
 
@@ -59,11 +62,16 @@ module.exports ={
                         message.reply('you joined the game.');
                     }
                 });
-            }).then(players =>{
-                message.channel.send(`${message.reactions.users}, are you ready?`);
-              }).catch(err =>{
-                  console.log(err);
-              })
+            })
+
+            
+        collector.on('collect', (reaction, user) => {
+            console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
+        });
+    
+        collector.on('end', collected => {
+            console.log(`Collected ${collected.size} items`);
+        });
 
             
 
