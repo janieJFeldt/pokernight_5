@@ -32,7 +32,7 @@ let getDeck = () => {
 let drawCard = deck => {
     var rand = Math.round(Math.random()*(deck.length-1));
     var rand2 = Math.round(Math.random()*(deck[rand].length-1));
-    return deck[rand][rand2];
+    return deck[rand].splice(rand2,1);
 }
 
 let getRiverCard = (message, river) => {
@@ -57,11 +57,11 @@ module.exports ={
 
         message.reply('\n Hand:\n'+ card1 + '\n' + card2);
 
-        message.channel.send('\n-------{1st}-------')
+        message.channel.send('\n-----{1st}-----')
         getRiverCard(message, river);
-        message.channel.send('\n-------{2nd}-------')
+        message.channel.send('\n-----{2nd}-----')
         getRiverCard(message, river);
-        message.channel.send('\n-------{3rd}-------')
+        message.channel.send('\n-----{3rd}-----')
 
         getRiverCard(message, river);
 
