@@ -38,7 +38,7 @@ let drawCard = deck => {
 let getRiverCard = (message, river) => {
 
 
-    message.channel.send(`River:\n${river.splice(0,1)}`);
+    message.channel.send(`\n\t${river.splice(0,1)}`);
 
 }
 
@@ -57,11 +57,11 @@ module.exports ={
 
         message.reply('\n Hand:\n'+ card1 + '\n' + card2);
 
+        message.channel.send('\n1st:')
         getRiverCard(message, river);
-
-        message.channel.send('\nSecond river card:\n')
+        message.channel.send('\n2nd:')
         getRiverCard(message, river);
-        message.channel.send('\nThird river card:\n')
+        message.channel.send('\n3rd:')
 
         getRiverCard(message, river);
 
