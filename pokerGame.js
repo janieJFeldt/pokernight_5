@@ -54,13 +54,10 @@ module.exports ={
         const collector = message.channel.createMessageCollector(filter, { time: 15000 });
 
 
-        message.awaitReactions(filter, { max: 3, time: 5000, errors: ['time'] })
+        message.awaitReactions(filter, { max: 1, time: 5000, errors: ['time'] })
             .then(collected => {
                 collected.forEach( (reaction, message) => {
 
-                    if (reaction.emoji.name === '👍') {
-                        message.reply('you joined the game.');
-                    }
                 });
             }).catch(err => {
                 console.log('error: '+err);
@@ -72,6 +69,10 @@ module.exports ={
         });
     
         collector.on('end', collected => {
+            
+            if (reaction.emoji.name === '👍') {
+                message.reply('you joined the game.');
+            }
             console.log(`Collected ${collected.size} items`);
         });
 
