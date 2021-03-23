@@ -15,10 +15,10 @@ let cards = [
 ]
 
 let suits = [
-    ':clubs:',
-    ':diamonds:',
-    ':heart:',
-    ':spades:'
+    ':CLOBS:',
+    ':DIMMADIMONDS:',
+    ':HERTZ:',
+    ':SPUDZ:'
 ]
 
 let getDeck = () => {
