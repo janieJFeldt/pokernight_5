@@ -29,11 +29,26 @@ let getDeck = () => {
 
 }
 
+let drawCard = deck => {
+    var rand = Math.random(deck.length-1);
+    return deck[rand];
+}
+
 module.exports ={
 
     startPokerGame: function(message){
+        let deck = getDeck();
         message.reply('Starting poker game for ' + message.author.username);
-        message.reply(getDeck());
+
+        message.reply('\nDrawing two cards...');
+        let card1 = drawCard(deck);
+        deck= deck.filter(x=> x !== card1);
+        let card2 = drawCard(deck);
+        deck= deck.filter(x=> x !== card2);
+
+        message.reply('\n '+ card1 + '\n' + card2);
+
+        message.reply('\n Remaining cards: ' + deck);
     }
 
 
