@@ -44,9 +44,30 @@ let getRiverCard = (message, river) => {
 
 module.exports ={
 
+    createGame: function(message){
+        message.react('👍').then(() => message.react('👎'));
+
+        const filter = (reaction, user) => {
+            return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
+        };
+
+        message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+            .then(collected => {
+                const reaction = collected.first();
+
+                if (reaction.emoji.name === '👍') {
+                    message.reply('you reacted with a thumbs up.');
+                } else {
+                    message.reply('you reacted with a thumbs down.');
+                }
+            })
+    },
+
     startPokerGame: function(message){
         let deck = getDeck();
         message.reply('Starting poker game for ' + message.author.username);
+        message.channel.send('If you would like to join, react with a thumbs-up!');
+        message.reactions.add()
 
         message.reply('\nDrawing two cards...');
         let card1 = drawCard(deck);
@@ -65,7 +86,7 @@ module.exports ={
         getRiverCard(message, river);
 
 
-         message.reply('\n Remaining cards: ' + deck);
+       //  message.reply('\n Remaining cards: ' + deck);
     }
 
 
