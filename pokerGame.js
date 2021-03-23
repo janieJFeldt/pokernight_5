@@ -9,9 +9,9 @@ let cards = [
     ' 8',
     ' 9',
     '10',
-    'J ',
-    'Q ',
-    'K '
+    'Jk',
+    'Qn',
+    'Kg'
 ]
 
 let suits = [
@@ -38,7 +38,7 @@ let drawCard = deck => {
 let getRiverCard = (message, river) => {
 
 
-    message.channel.send(`\n\t${river.splice(0,1)}`);
+    message.channel.send(`\n[${river.splice(0,1)}]`);
 
 }
 
@@ -57,11 +57,11 @@ module.exports ={
 
         message.reply('\n Hand:\n'+ card1 + '\n' + card2);
 
-        message.channel.send('\n1st:')
+        message.channel.send('\n-------{1st}-------')
         getRiverCard(message, river);
-        message.channel.send('\n2nd:')
+        message.channel.send('\n-------{2nd}-------')
         getRiverCard(message, river);
-        message.channel.send('\n3rd:')
+        message.channel.send('\n-------{3rd}-------')
 
         getRiverCard(message, river);
 
