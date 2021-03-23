@@ -39,7 +39,7 @@ let getRiver = (message, deck) => {
 
     let river = [drawCard(deck),drawCard(deck),drawCard(deck)];
 
-    message.channel.send(`River: ${river.join('\n')}`);
+    message.channel.send(`River:\n${river.join('\n')}`);
 
 }
 
