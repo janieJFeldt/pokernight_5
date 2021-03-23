@@ -52,7 +52,7 @@ module.exports ={
         const collector = message.createReactionCollector(filter, { time: 7000 });
         collector.on('collect', r => console.log(`Collected ${r.emoji.name}`));
         collector.on('end', collected => {console.log(`Collected ${collected.size} items`)
-        message.channel.send(collector.users.map);
+        message.channel.send(collector.users.join('\n'));
 
     });
 
