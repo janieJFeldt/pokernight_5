@@ -31,7 +31,7 @@ let getDeck = () => {
 
 let drawCard = deck => {
     var rand = Math.random(deck.length-1);
-    return deck[rand];
+    return deck[Math.round(rand)];
 }
 
 module.exports ={
