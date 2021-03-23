@@ -49,11 +49,13 @@ module.exports ={
         message.react('👍').then(() => message.react('👎'));
 
         const filter = (reaction) => reaction.emoji.name === '👍';
-        const collector = message.createReactionCollector(filter, { time: 15000 });
+        const collector = message.createReactionCollector(filter, { time: 7000 });
         collector.on('collect', r => console.log(`Collected ${r.emoji.name}`));
-        collector.on('end', collected => console.log(`Collected ${collected.size} items`));
-
+        collector.on('end', collected => {console.log(`Collected ${collected.size} items`)
         message.channel.send(`${collector.users}`);
+
+    });
+
 
     },
 
