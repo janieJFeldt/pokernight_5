@@ -32,7 +32,7 @@ let getDeck = () => {
 let drawCard = deck => {
     var rand = Math.round(Math.random(deck.length-1));
 
-    return deck.splice(rand,deck.indexOf(','),2);
+    return deck.join().splice(rand,deck.indexOf(','),2);
 }
 
 module.exports ={
