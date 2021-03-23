@@ -59,9 +59,11 @@ module.exports ={
                         message.reply('you joined the game.');
                     }
                 });
-            }).then(collected => {
-                return collected;
-            })
+            }).then(players =>{
+                message.channel.send(`${players}, are you ready?`);
+              });
+
+            
 
     },
 
