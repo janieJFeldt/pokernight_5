@@ -48,31 +48,10 @@ module.exports ={
 
         message.react('👍').then(() => message.react('👎'));
 
-        const filter = (reaction, user) => {
-            return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
-        };
-        const collector = message.channel.createMessageCollector(filter, { time: 15000 });
-
-
-        message.awaitReactions(filter, { max: 1, time: 5000, errors: ['time'] })
-            .then(collected => {
-                console.log(collected);
-            }).catch(err => {
-                console.log('error: '+err);
-            })
-
-            
-        collector.on('collect', (reaction, user) => {
-            console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
-        });
-    
-        collector.on('end', collected => {
-            
-            if (reaction.emoji.name === '👍') {
-                message.reply('you joined the game.');
-            }
-            console.log(`Collected ${collected.size} items`);
-        });
+        const filter = (reaction) => reaction.emoji.name === '👍';
+        const collector = message.createReactionCollector(filter, { time: 15000 });
+        collector.on('collect', r => console.log(`Collected ${r.emoji.name}`));
+        collector.on('end', collected => console.log(`Collected ${collected.size} items`));
 
             
 
