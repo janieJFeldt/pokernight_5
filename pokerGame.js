@@ -63,7 +63,7 @@ module.exports ={
         let deck = getDeck();
         message.reply('Starting poker game for ' + message.author.username);
         message.channel.send('If you would like to join, react with a thumbs-up!');
-        message.reactions.add()
+        // message.reactions.add()
 
         message.reply('\nDrawing two cards...');
         let card1 = drawCard(deck);
