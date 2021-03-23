@@ -51,7 +51,7 @@ module.exports ={
             return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
         };
 
-        message.awaitReactions(filter, { max: 6, time: 5000, errors: ['time'] })
+        message.awaitReactions(filter, { max: 12, time: 5000, errors: ['time'] })
             .then(collected => {
                 collected.forEach( (reaction, message) => {
 
@@ -60,7 +60,7 @@ module.exports ={
                     }
                 });
             }).then(players =>{
-                message.channel.send(`${players}, are you ready?`);
+                message.channel.send(`${message.reactions.users}, are you ready?`);
               }).catch(err =>{
                   console.log(err);
               })
