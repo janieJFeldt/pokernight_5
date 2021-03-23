@@ -30,8 +30,8 @@ let getDeck = () => {
 }
 
 let drawCard = deck => {
-    var rand = Math.round(Math.random()*deck.length-1);
-    var rand2 = Math.round(Math.random()*deck[rand].length-1);
+    var rand = Math.round(Math.random()*(deck.length-1));
+    var rand2 = Math.round(Math.random()*(deck[rand].length-1));
     return deck[rand][rand2];
 }
 
@@ -44,9 +44,13 @@ module.exports ={
         message.reply('\nDrawing two cards...');
         let card1 = drawCard(deck);
         let card2 = drawCard(deck);
+
+        let river = [drawCard(deck),drawCard(deck),drawCard(deck)];
     
 
         message.reply('\n Hand:\n'+ card1 + '\n' + card2);
+
+        message.channel.send(`River: ${river}`);
 
         // message.reply('\n Remaining cards: ' + deck);
     }
