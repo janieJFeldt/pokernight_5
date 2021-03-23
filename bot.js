@@ -2,7 +2,7 @@ require('dotenv').config();
 const AWS = require('aws-sdk');
 const Discord = require('discord.js');
 const db = require('./dbActions.js');
-const poker = require('./poker.js');
+const poker = require('./pokerGame.js');
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 
