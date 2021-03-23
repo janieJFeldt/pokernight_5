@@ -15,10 +15,10 @@ let cards = [
 ]
 
 let suits = [
-    '\:CLOBS\:',
-    '\:DIMMADIMONDS\:',
-    '\:HERTZ\:',
-    '\:SPUDZ\:'
+    '<:CLOBS:823747049261891604>',
+    '<:DIMMADIMONDS:823747049052569650>',
+    '<:HERTZ:823747048943779881>',
+    '<:SPUDZ:823747049337782282>'
 ]
 
 let getDeck = () => {
