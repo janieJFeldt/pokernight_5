@@ -1,5 +1,5 @@
 let cards = [
-    ' 1',
+    'A ',
     ' 2',
     ' 3',
     ' 4',
@@ -9,21 +9,21 @@ let cards = [
     ' 8',
     ' 9',
     '10',
-    '11',
-    '12',
-    '13'
+    'J ',
+    'Q ',
+    'K '
 ]
 
 let suits = [
-    'C',
-    'D',
-    'H',
-    'S'
+    'Clubs ',
+    'Dimnds',
+    'Hearts',
+    'Spades'
 ]
 
 let getDeck = () => {
     let newDeck = [];
-    suits.forEach(x => newDeck.push(cards.map(y=> x+y)));
+    suits.forEach(x => newDeck.push(cards.map(y=> y + ' of ' + x)));
 
     return newDeck;
 
@@ -48,7 +48,7 @@ module.exports ={
 
         message.reply('\n Hand:\n'+ card1 + '\n' + card2);
 
-        message.reply('\n Remaining cards: ' + deck);
+        // message.reply('\n Remaining cards: ' + deck);
     }
 
 
