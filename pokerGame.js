@@ -56,10 +56,10 @@ module.exports ={
                 const reaction = collected.first();
 
                 if (reaction.emoji.name === '👍') {
-                    message.reply('you reacted with a thumbs up.');
-                } else {
-                    message.reply('you reacted with a thumbs down.');
+                    message.reply('you joined the game.');
                 }
+                
+            return collected;
             })
     },
 
