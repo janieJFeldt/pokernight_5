@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
 
 const db = require('./dbActions.js');
 
@@ -94,7 +95,7 @@ module.exports ={
             // let result = db.getFromDynamo('277622752196689921','pokerGame');
             // console.log('result' + result);
             //let stringFormatted = '<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand;
-            message.channel.send(db.getFromDynamo('277622752196689921','pokerGame'));
+            message.channel.send(db.getFromDynamo(docClient,'277622752196689921','pokerGame'));
         })
        // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 

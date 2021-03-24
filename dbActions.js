@@ -9,8 +9,7 @@ AWS.config.update({
 
 
 module.exports ={
-  getFromDynamo: function (keyValue,tableName){
-    const docClient = new AWS.DynamoDB.DocumentClient();
+  getFromDynamo: function (docClient,keyValue,tableName){
 
       const params = {
       Key: {"id":keyValue},
