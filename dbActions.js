@@ -9,15 +9,26 @@ AWS.config.update({
 
 
 module.exports ={
-    getDataObject: function(message){
+  getFromDynamo: function (keyValue,tableName){
+    const docClient = new AWS.DynamoDB.DocumentClient();
 
-    return {
-        'author':message.author,
-        'content':message.content,
-        
+      const params = {
+      TableName: tableName,
+      Key: keyValue
+  }
+
+
+  docClient.get(params, (error, data) => {
+    if (!error) {
+      // Finally, return a message to the user stating that the app was saved
+      console.log(data);
+      return;
+    } else {
+      throw "Unable to save record, err" + error
     }
-    
-    }
+  })
+
+}
     ,
     saveToDynamo: function (entryId,tableName,application){
       const docClient = new AWS.DynamoDB.DocumentClient();

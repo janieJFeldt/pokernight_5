@@ -75,20 +75,23 @@ module.exports ={
         
         message.channel.send('Starting poker game for ' + players);
 
-        this.startPokerGame(message);
+        this.startPokerGame(players,message);
 
     });
 
 
     },
 
-    startPokerGame: function(message){
+    startPokerGame: function(players,message){
         let deck = getDeck();
 
 
         let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
 
 
+        players.forEach(x=>{
+            message.channel.send(db.getFromDynamo(x.id,'pokerGame'));
+        })
        // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 
         // message.channel.send('\n-----{1st}-----')
