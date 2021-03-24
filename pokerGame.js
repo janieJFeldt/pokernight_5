@@ -72,7 +72,7 @@ module.exports ={
         let river = [drawCard(deck),drawCard(deck),drawCard(deck)];
 
 
-        message.reply('\n Hand:\n'+ card1 + '\n' + card2);
+        message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 
         message.channel.send('\n-----{1st}-----')
         getRiverCard(message, river);
@@ -80,6 +80,7 @@ module.exports ={
         getRiverCard(message, river);
         message.channel.send('\n-----{3rd}-----')
         getRiverCard(message, river);
+        message.channel.send('You had\n' +card1 + '\n' + card2);
 
 
        //  message.reply('\n Remaining cards: ' + deck);
