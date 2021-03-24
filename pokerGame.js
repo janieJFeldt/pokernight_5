@@ -103,7 +103,9 @@ module.exports ={
             // let result = db.getFromDynamo('277622752196689921','pokerGame');
             // console.log('result' + result);
             //let stringFormatted = '<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand;
-            message.channel.send(db.getFromDynamo(docClient,'277622752196689921','pokerGame'));
+            await db.getFromDynamo(docClient,'277622752196689921','pokerGame').then(data => {
+                message.channel.send(data.Item.info.Hand);
+            });
         })
        // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 
