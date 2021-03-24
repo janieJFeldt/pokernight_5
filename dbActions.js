@@ -19,14 +19,14 @@ module.exports ={
     
     }
     ,
-    saveToDynamo: function (tableName,application){
+    saveToDynamo: function (entryId,tableName,application){
       const docClient = new AWS.DynamoDB.DocumentClient();
 
         const params = {
         TableName: tableName,
         Item: {
             // Use Date.now().toString() just to generate a unique value
-            id: Date.now().toString(),
+            id: entryId, //Date.now().toString(),
             // `info` is used to save the actual data
             info: application
         }
