@@ -69,7 +69,7 @@ module.exports ={
         let card1 = drawCard(deck);
         let card2 = drawCard(deck);
 
-        let river = [drawCard(deck),drawCard(deck),drawCard(deck)];
+        let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
 
 
         message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
@@ -80,6 +80,11 @@ module.exports ={
         getRiverCard(message, river,1);
         message.channel.send('\n-----{3rd}-----')
         getRiverCard(message, river,2);
+        message.channel.send('\n-----{4th}-----')
+        getRiverCard(message, river,3);
+        message.channel.send('\n-----{5th}-----')
+        getRiverCard(message, river,4);
+
         message.channel.send('You had\n' +card1 + '\n' + card2);
 
         message.channel.send(river);
