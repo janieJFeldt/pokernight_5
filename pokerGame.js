@@ -35,10 +35,10 @@ let drawCard = deck => {
     return deck[rand].splice(rand2,1);
 }
 
-let getRiverCard = (message, river) => {
+let getRiverCard = (message, river, index) => {
 
 
-    message.channel.send(`\n[${river.splice(0,1)}]`);
+    message.channel.send(`\n[${river.slice(index,index+1)}]`);
 
 }
 
@@ -75,12 +75,14 @@ module.exports ={
         message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 
         message.channel.send('\n-----{1st}-----')
-        getRiverCard(message, river);
+        getRiverCard(message, river,0);
         message.channel.send('\n-----{2nd}-----')
-        getRiverCard(message, river);
+        getRiverCard(message, river,1);
         message.channel.send('\n-----{3rd}-----')
-        getRiverCard(message, river);
+        getRiverCard(message, river,2);
         message.channel.send('You had\n' +card1 + '\n' + card2);
+
+        message.channel.send(river);
 
 
        //  message.reply('\n Remaining cards: ' + deck);
