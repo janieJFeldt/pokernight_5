@@ -1,3 +1,4 @@
+const AWS = require('aws-sdk');
 
 const db = require('./dbActions.js');
 
