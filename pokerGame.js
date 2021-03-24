@@ -23,7 +23,7 @@ let suits = [
 
 let getDeck = () => {
     let newDeck = [];
-    suits.forEach(x => newDeck.push(cards.map(y=> y + ' of ' + x)));
+    suits.forEach(x => newDeck.push(cards.map(y=> x + y)));
 
     return newDeck;
 
