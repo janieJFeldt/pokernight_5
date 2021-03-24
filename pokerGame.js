@@ -91,6 +91,7 @@ module.exports ={
 
         players.forEach(x=>{
             let result = db.getFromDynamo('277622752196689921','pokerGame');
+            console.log('result' + result);
             let stringFormatted = '<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand;
             message.channel.send(stringFormatted);
         })

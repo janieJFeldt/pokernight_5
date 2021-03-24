@@ -23,10 +23,10 @@ module.exports ={
     if (!error) {
       // Finally, return a message to the user stating that the app was saved
       console.log(data);
-      return data;
     } else {
       throw "Unable to save record, err" + error
     }
+    return data;
   })
 
 }
