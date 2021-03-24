@@ -13,8 +13,9 @@ module.exports ={
     const docClient = new AWS.DynamoDB.DocumentClient();
 
       const params = {
-      TableName: tableName,
-      Key: keyValue
+      Key: {"id":keyValue},
+      TableName: tableName
+      
   }
 
 
