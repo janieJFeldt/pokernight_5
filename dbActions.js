@@ -22,11 +22,16 @@ module.exports ={
   docClient.get(params, (error, data) => {
     if (!error) {
       // Finally, return a message to the user stating that the app was saved
-      console.log(data);
+      // console.log(data);
+      return data;
+
     } else {
       throw "Unable to save record, err" + error
     }
+  }).then(data=>{
     return data;
+  }).catch(err=>{
+    throw err;
   })
 
 }
