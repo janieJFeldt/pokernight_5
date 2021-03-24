@@ -67,7 +67,7 @@ module.exports ={
             
             let card1 = drawCard(deck);
             let card2 = drawCard(deck);
-            db.saveToDynamo(x.name, {'Hand': [card1,card2]});
+            db.saveToDynamo('pokerGame', { x : { 'Hand': [card1,card2] } } );
             x.send('\n Hand:\n'+ card1 + '\n' + card2);
         });
         
