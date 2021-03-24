@@ -54,8 +54,11 @@ module.exports ={
         collector.on('end', collected => {console.log(`Collected ${collected.size} items`)
         message.channel.send(collector.users.array().slice(1) + '\n Let\'s get ready to play!');
 
+        let deck = getDeck();
+
         collector.users.array().slice(1).forEach(x=>{
 
+            
             let card1 = drawCard(deck);
             let card2 = drawCard(deck);
             message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
