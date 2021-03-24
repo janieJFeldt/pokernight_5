@@ -47,6 +47,7 @@ module.exports ={
     createGame: function(message){
 
         message.react('👍').then(() => message.react('👎'));
+        message.channel.send('If you would like to join, react with a thumbs-up!');
 
         const filter = (reaction) => reaction.emoji.name === '👍';
         const collector = message.createReactionCollector(filter, { time: 7000 });
@@ -66,6 +67,8 @@ module.exports ={
             x.send('\n Hand:\n'+ card1 + '\n' + card2);
         });
         
+        message.reply('Starting poker game for ' + players);
+
         this.startPokerGame(message);
 
     });
@@ -75,13 +78,7 @@ module.exports ={
 
     startPokerGame: function(message){
         let deck = getDeck();
-        message.reply('Starting poker game for ' + message.author.username);
-        message.channel.send('If you would like to join, react with a thumbs-up!');
-        // message.reactions.add()
 
-        message.reply('\nDrawing two cards...');
-        //let card1 = drawCard(deck);
-       // let card2 = drawCard(deck);
 
         let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
 
