@@ -1,24 +1,16 @@
 require('dotenv').config();
 const AWS = require('aws-sdk');
 const Discord = require('discord.js');
-const db = require('./dbActions.js');
 const poker = require('./pokerGame.js');
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 
 
-AWS.config.update({
-  region: process.env.AWS_DEFAULT_REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-})
-const docClient = new AWS.DynamoDB.DocumentClient();
-
 bot.login(TOKEN);
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
-  bot.guilds.get('822858977523138640').emojis.forEach(emoji => console.log(emoji.animated ? '<a:' + emoji.name + ':' + emoji.id + '>' : '<:' + emoji.name + ':' + emoji.id + '>'));
+  // bot.guilds.get('822858977523138640').emojis.forEach(emoji => console.log(emoji.animated ? '<a:' + emoji.name + ':' + emoji.id + '>' : '<:' + emoji.name + ':' + emoji.id + '>'));
 });
 
 

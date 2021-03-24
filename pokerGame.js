@@ -1,3 +1,6 @@
+
+const db = require('./dbActions.js');
+
 let cards = [
     'Ace',
     '2',
@@ -64,10 +67,11 @@ module.exports ={
             
             let card1 = drawCard(deck);
             let card2 = drawCard(deck);
+            db.saveToDynamo(x, {'Hand': [card1,card2]});
             x.send('\n Hand:\n'+ card1 + '\n' + card2);
         });
         
-        message.reply('Starting poker game for ' + players);
+        message.channel.send('Starting poker game for ' + players);
 
         this.startPokerGame(message);
 
