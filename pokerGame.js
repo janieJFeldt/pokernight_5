@@ -90,7 +90,7 @@ module.exports ={
 
 
         players.forEach(x=>{
-            message.channel.send(db.getFromDynamo(x.id,'pokerGame'));
+           // message.channel.send(db.getFromDynamo(x.id,'pokerGame'));
         })
        // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 
