@@ -63,8 +63,10 @@ module.exports ={
             
             let card1 = drawCard(deck);
             let card2 = drawCard(deck);
-            message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
-        }).then(()=>this.startPokerGame(message));
+            x.send('\n Hand:\n'+ card1 + '\n' + card2);
+        });
+        
+        this.startPokerGame(message);
 
     });
 
