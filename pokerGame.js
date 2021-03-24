@@ -90,12 +90,10 @@ module.exports ={
 
 
         players.forEach(x=>{
-            db.getFromDynamo('277622752196689921','pokerGame').then(x=>{
-                console.log('result' + x);
-            let stringFormatted = '<@' + x.Item.id + '>' + ' had ' + x.Item.info.Hand;
-            message.channel.send(stringFormatted);
-            });
-            
+            // let result = db.getFromDynamo('277622752196689921','pokerGame');
+            // console.log('result' + result);
+            //let stringFormatted = '<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand;
+            message.channel.send(db.getFromDynamo('277622752196689921','pokerGame'));
         })
        // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 
