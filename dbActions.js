@@ -28,12 +28,8 @@ module.exports ={
     } else {
       throw "Unable to save record, err" + error
     }
-  }).then(data=>{
-    return data;
-  }).catch(err=>{
-    throw err;
-  })
 
+  })
 }
     ,
     saveToDynamo: function (entryId,tableName,application){
