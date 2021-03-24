@@ -1,11 +1,3 @@
-const AWS = require('aws-sdk');
-
-
-AWS.config.update({
-  region: process.env.AWS_DEFAULT_REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-})
 
 
 module.exports ={
@@ -21,18 +13,17 @@ module.exports ={
   docClient.get(params, (error, data) => {
     if (!error) {
       // Finally, return a message to the user stating that the app was saved
-      // console.log(data);
+      console.log(data);
       return data;
 
     } else {
       throw "Unable to save record, err" + error
     }
 
-  })
+  }).promise()
 }
     ,
-    saveToDynamo: function (entryId,tableName,application){
-      const docClient = new AWS.DynamoDB.DocumentClient();
+    saveToDynamo: function (docClient,entryId,tableName,application){
 
         const params = {
         TableName: tableName,
