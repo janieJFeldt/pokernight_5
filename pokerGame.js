@@ -54,6 +54,13 @@ module.exports ={
         collector.on('end', collected => {console.log(`Collected ${collected.size} items`)
         message.channel.send(collector.users.array().slice(1) + '\n Let\'s get ready to play!');
 
+        collector.users.array().slice(1).forEach(x=>{
+
+            let card1 = drawCard(deck);
+            let card2 = drawCard(deck);
+            message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
+        })
+
     });
 
 
@@ -66,13 +73,13 @@ module.exports ={
         // message.reactions.add()
 
         message.reply('\nDrawing two cards...');
-        let card1 = drawCard(deck);
-        let card2 = drawCard(deck);
+        //let card1 = drawCard(deck);
+       // let card2 = drawCard(deck);
 
         let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
 
 
-        message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
+       // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 
         message.channel.send('\n-----{1st}-----')
         getRiverCard(message, river,0);
@@ -85,7 +92,7 @@ module.exports ={
         message.channel.send('\n-----{5th}-----')
         getRiverCard(message, river,4);
 
-        message.channel.send('You had\n' +card1 + '\n' + card2);
+       // message.channel.send('You had\n' +card1 + '\n' + card2);
 
         message.channel.send(river);
 
