@@ -1,3 +1,12 @@
+
+
+AWS.config.update({
+  region: process.env.AWS_DEFAULT_REGION,
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+})
+
+
 module.exports ={
     getDataObject: function(message){
 
@@ -9,9 +18,11 @@ module.exports ={
     
     }
     ,
-    saveToDynamo: function (docClient, application){
+    saveToDynamo: function (tableName,application){
+      const docClient = new AWS.DynamoDB.DocumentClient();
+
         const params = {
-        TableName: 'pokerStats',
+        TableName: tableName,
         Item: {
             // Use Date.now().toString() just to generate a unique value
             id: Date.now().toString(),
