@@ -62,13 +62,14 @@ module.exports ={
 
         let deck = getDeck();
 
-        players.forEach(x=>{
+        players.forEach((x,index)=>{
 
             
             let card1 = drawCard(deck);
             let card2 = drawCard(deck);
-            let handData = { x : { 'Hand' : [card1,card2] } }
-            db.saveToDynamo('pokerGame', handData);
+            let handData = '{"'+ players[index]+ '":'+ '{ "Hand" : [' + card1+','+card2+'"]}}';
+
+            db.saveToDynamo('pokerGame', JSON.parse(handData));
             x.send('\n Hand:\n'+ card1 + '\n' + card2);
         });
         
