@@ -88,16 +88,16 @@ module.exports ={
 
        // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 
-        message.channel.send('\n-----{1st}-----')
-        getRiverCard(message, river,0);
-        message.channel.send('\n-----{2nd}-----')
-        getRiverCard(message, river,1);
-        message.channel.send('\n-----{3rd}-----')
-        getRiverCard(message, river,2);
-        message.channel.send('\n-----{4th}-----')
-        getRiverCard(message, river,3);
-        message.channel.send('\n-----{5th}-----')
-        getRiverCard(message, river,4);
+        // message.channel.send('\n-----{1st}-----')
+        // getRiverCard(message, river,0);
+        // message.channel.send('\n-----{2nd}-----')
+        // getRiverCard(message, river,1);
+        // message.channel.send('\n-----{3rd}-----')
+        // getRiverCard(message, river,2);
+        // message.channel.send('\n-----{4th}-----')
+        // getRiverCard(message, river,3);
+        // message.channel.send('\n-----{5th}-----')
+        // getRiverCard(message, river,4);
 
        // message.channel.send('You had\n' +card1 + '\n' + card2);
 
