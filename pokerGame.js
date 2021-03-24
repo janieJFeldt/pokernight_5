@@ -52,17 +52,19 @@ module.exports ={
         const collector = message.createReactionCollector(filter, { time: 7000 });
         collector.on('collect', r => console.log(`Collected ${r.emoji.name}`));
         collector.on('end', collected => {console.log(`Collected ${collected.size} items`)
-        message.channel.send(collector.users.array().slice(1) + '\n Let\'s get ready to play!');
+
+        let players = collector.users.array().slice(1);
+        message.channel.send(players + '\n Let\'s get ready to play!');
 
         let deck = getDeck();
 
-        collector.users.array().slice(1).forEach(x=>{
+        players.forEach(x=>{
 
             
             let card1 = drawCard(deck);
             let card2 = drawCard(deck);
             message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
-        })
+        }).then(()=>this.startPokerGame(message));
 
     });
 
