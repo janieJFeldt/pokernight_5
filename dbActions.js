@@ -1,7 +1,7 @@
 
 
 module.exports ={
-  getFromDynamo: function (docClient,keyValue,tableName){
+  getFromDynamo: () => function (docClient,keyValue,tableName){
 
       const params = {
       Key: {"id":keyValue},
