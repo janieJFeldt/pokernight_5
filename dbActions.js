@@ -1,7 +1,7 @@
 
 
 module.exports ={
-  getFromDynamo: (docClient,keyValue,tableName) => function(docClient,keyValue,tableName){
+  getFromDynamo: (docClient,keyValue,tableName) => {
 
       const params = {
       Key: {"id":keyValue},
@@ -10,7 +10,7 @@ module.exports ={
   }
 
 
-  docClient.get(params, (error, data) => {
+  var result = docClient.get(params, (error, data) => {
     if (!error) {
       // Finally, return a message to the user stating that the app was saved
       console.log(data);
@@ -21,6 +21,7 @@ module.exports ={
     }
 
   });
+  return result;
 }
     ,
     saveToDynamo: function (docClient,entryId,tableName,application){
