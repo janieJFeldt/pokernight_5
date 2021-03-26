@@ -68,6 +68,8 @@ module.exports ={
         collector.on('end', collected => {console.log(`Collected ${collected.size} items`)
 
         let players = collector.users.array().slice(1);
+        console.log("show all players: " + collector.users.array() + "\n all users except first: " + players);
+
         message.channel.send(players + '\n Let\'s get ready to play!');
 
         let deck = getDeck();
