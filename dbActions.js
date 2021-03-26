@@ -10,7 +10,7 @@ module.exports ={
   }
 
 
-  return docClient.get(params, (error, data) => {
+  docClient.get(params, (error, data) => {
     if (!error) {
       // Finally, return a message to the user stating that the app was saved
       console.log(data);
