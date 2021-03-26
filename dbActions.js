@@ -10,7 +10,7 @@ module.exports ={
   }
 
 
-  docClient.get(params, (error, data) => {
+  return new Promise(docClient.get(params, (error, data) => {
     if (!error) {
       // Finally, return a message to the user stating that the app was saved
       console.log(data);
@@ -20,7 +20,7 @@ module.exports ={
       throw "Unable to save record, err" + error
     }
 
-  }).promise()
+  }));
 }
     ,
     saveToDynamo: function (docClient,entryId,tableName,application){

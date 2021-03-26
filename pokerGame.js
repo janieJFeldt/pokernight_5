@@ -105,9 +105,9 @@ module.exports ={
             // let result = db.getFromDynamo('277622752196689921','pokerGame');
             // console.log('result' + result);
             //let stringFormatted = '<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand;
-            let promise = db.getFromDynamo(docClient,'277622752196689921','pokerGame').promise();
+            let promise = db.getFromDynamo(docClient,'277622752196689921','pokerGame');
             
-            promise.resolve.then(result => {
+            promise.then(result => {
                 message.channel.send('<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand);
 
             });
