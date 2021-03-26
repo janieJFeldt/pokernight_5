@@ -94,7 +94,7 @@ module.exports ={
 
     },
 
-    startPokerGame: function(players,message){
+     startPokerGame: async function(players,message){
         let deck = getDeck();
 
 
@@ -105,7 +105,7 @@ module.exports ={
             // let result = db.getFromDynamo('277622752196689921','pokerGame');
             // console.log('result' + result);
             //let stringFormatted = '<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand;
-            let result = (() => db.getFromDynamo(docClient,'277622752196689921','pokerGame'));
+            let result = await db.getFromDynamo(docClient,'277622752196689921','pokerGame').promise();
          //   result.then(res => message.channel.send('<@' + res.Item.id + '>' + ' had ' + res.Item.info.Hand));
          result.resolve().then(res =>{
              console.log(resolved);
