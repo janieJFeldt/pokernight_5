@@ -68,7 +68,7 @@ module.exports ={
         collector.on('end', collected => {console.log(`Collected ${collected.size} items`)
 
         let players = collector.users.array().slice(1);
-        console.log("show all players: " + collector.users.array() + "\n all users except first: " + players);
+        // console.log("show all players: " + collector.users.array() + "\n all users except first: " + players);
 
         message.channel.send(players + '\n Let\'s get ready to play!');
 
@@ -105,7 +105,10 @@ module.exports ={
             // let result = db.getFromDynamo('277622752196689921','pokerGame');
             // console.log('result' + result);
             //let stringFormatted = '<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand;
-            console.log(db.getFromDynamo(docClient,'277622752196689921','pokerGame'));
+            db.getFromDynamo(docClient,'277622752196689921','pokerGame').then(result => {
+                message.channel.send('<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand);
+
+            });
         })
        // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 
