@@ -94,7 +94,7 @@ module.exports ={
 
     },
 
-     async startPokerGame: async function(players,message){
+     async startPokerGame = () => async function(players,message){
         let deck = getDeck();
 
 
@@ -132,9 +132,4 @@ module.exports ={
 
        //  message.reply('\n Remaining cards: ' + deck);
     }
-
-
-
-
-
 }
