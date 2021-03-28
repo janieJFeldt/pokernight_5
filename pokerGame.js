@@ -110,7 +110,7 @@ module.exports ={
          //   result.then(res => message.channel.send('<@' + res.Item.id + '>' + ' had ' + res.Item.info.Hand));
          console.log(result);
 
-        })
+        });
        // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 
         // message.channel.send('\n-----{1st}-----')
