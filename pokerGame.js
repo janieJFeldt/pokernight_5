@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const { ConfigurationServicePlaceholders } = require('aws-sdk/lib/config_service_placeholders');
 
 
 AWS.config.update({
@@ -107,9 +108,7 @@ module.exports ={
             //let stringFormatted = '<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand;
             let result = db.getFromDynamo(docClient,'277622752196689921','pokerGame').promise();
          //   result.then(res => message.channel.send('<@' + res.Item.id + '>' + ' had ' + res.Item.info.Hand));
-         result.resolve().then(res =>{
-             console.log(resolved);
-         }).catch(err);
+         console.log(result);
 
         })
        // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
