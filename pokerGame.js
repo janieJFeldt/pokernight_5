@@ -86,7 +86,9 @@ module.exports ={
         
         message.channel.send('Starting poker game for ' + players);
 
-        this.startPokerGame(players,message);
+        thread.sleep(12000).then(
+            this.startPokerGame(players,message)
+        );
 
     });
 
