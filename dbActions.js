@@ -1,11 +1,11 @@
 
 
 module.exports ={
-  getFromDynamo: (docClient,keyValue,tableName) => {
+  getFromDynamo: (message,docClient,keyValue,tableName) => {
 
       const params = {
       Key: {"id":keyValue},
-      TableName: tableName
+      TableName: tableName,
       
   }
 
@@ -13,7 +13,7 @@ module.exports ={
   var result = docClient.get(params, (error, data) => {
     if (!error) {
       // Finally, return a message to the user stating that the app was saved
-      console.log(data);
+      message.channel.send("<@" + data.Item.id + "> had " + data.Item.info.Hand);
       return data;
 
     } else {
