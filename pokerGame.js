@@ -86,12 +86,7 @@ module.exports ={
        // console.log(JSON.parse(players));
         players.forEach(pl => db.saveToDynamo(docClient,pl.username,'players', players));
 
-        return new Promise(function (resolve, reject) {
-            if (players)
-                resolve();
-            else
-                reject();
-        });
+        return deck;
     
     });
 
