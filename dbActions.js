@@ -12,7 +12,7 @@ module.exports ={
   var result = docClient.scan(params, (error, data) => {
     if (!error) {
       // Finally, return a message to the user stating that the app was saved
-      //console.log(data);
+      console.log(data);
       message.channel.send(data.Items[0].id + " had " + data.Items[0].info[0].Hand);
       return data;
 
