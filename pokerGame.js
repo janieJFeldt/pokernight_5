@@ -84,23 +84,23 @@ module.exports ={
         });
         
         message.channel.send('Starting poker game for ' + players);
-
+        db.saveToDynamo(docClient,1,'players', JSON.parse(players));
     
-        return players;
     });
 
 
     },
 
-     startPokerGame: function(players,message){
+     startPokerGame: function(message){
         let deck = getDeck();
+        let players =db.getFromDynamo(message,docClient,1,'players');
 
 
         let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
 
         function getItemFromDynamo(message, docClient){
             let result = db.getFromDynamo(message, docClient,'277622752196689921','pokerGame');
-            message.channel.send('<@' + res.Item.id + '>' + ' had ' + res.Item.info.Hand);
+            message.channel.send('<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand);
             console.log(result);
         }
 

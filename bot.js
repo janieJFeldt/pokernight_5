@@ -44,8 +44,8 @@ const decipherCommand = message => {
         poker.startPokerGame(message);
       break;
       case('start'):
-        let players = poker.createGame(message);
-        poker.startPokerGame(players, message);
+        poker.createGame(message);
+        poker.startPokerGame(message);
       break;
     }
   
