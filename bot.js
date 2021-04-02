@@ -4,6 +4,9 @@ const poker = require('./pokerGame.js');
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+const db = require('./dbActions.js');
 
 bot.login(TOKEN);
 
@@ -47,7 +50,8 @@ const decipherCommand = async message => {
       case('start'):
       await poker.createGame(message,deck, (message2,newDeck2) =>
           { poker.startPokerGame(message2,newDeck2, ()=>{})});          
-          
+          db.scanFromDynamo(message,docClient,'pokerGame');
+
       break;
     }
   

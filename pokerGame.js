@@ -66,8 +66,6 @@ module.exports ={
         if(callback instanceof Function){
             callback(message,deck);
         }
-        db.scanFromDynamo(message,docClient,'pokerGame');
-
     });
 
 
