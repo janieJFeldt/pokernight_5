@@ -94,7 +94,7 @@ module.exports ={
         let players =db.scanFromDynamo(message,docClient,'pokerGame');
 
 
-        console.log("startgame:" + JSON.parse(players));
+        console.log("startgame:" + players.toString());
         let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
 
         // function getItemFromDynamo(message, docClient){
