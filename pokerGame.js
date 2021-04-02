@@ -84,7 +84,7 @@ module.exports ={
         });
         
         message.channel.send('Starting poker game for ' + players);
-        db.saveToDynamo(docClient,'1','players', JSON.parse(players));
+        db.saveToDynamo(docClient,players[index].id,'players', JSON.parse(players[index]));
     
     });
 
