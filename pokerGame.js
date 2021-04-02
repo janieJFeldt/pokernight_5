@@ -97,8 +97,16 @@ module.exports ={
 
        let river = await getRiverCard(message,riverCards,(message,river1)=>{
            getRiverCard(message,river1,(message,river2)=>{
-            getRiverCard(message,river2)})
-           });
+            getRiverCard(message,river2,(message,river3)=>{
+                getRiverCard(message,river3,(message,river4)=>{
+                    getRiverCard(message,river4,(message,river5)=>{
+                        getRiverCard(message,river5, ()=>{})
+                    })
+                })
+            })
+        })
+    });
+
 
         await message.channel.send(river);
 
