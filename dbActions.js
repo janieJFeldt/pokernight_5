@@ -13,7 +13,7 @@ module.exports ={
     if (!error) {
       // Finally, return a message to the user stating that the app was saved
       console.log(data);
-      message.channel.send("<@" + data + "> had " + data);
+      message.channel.send(data.Items[0].id + " had " + data.Items[0].info.Hand);
       return data;
 
     } else {
