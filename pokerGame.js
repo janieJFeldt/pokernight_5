@@ -104,7 +104,7 @@ module.exports ={
             console.log(result);
         }
 
-        players.forEach(getItemFromDynamo);
+       // players.forEach(getItemFromDynamo);
        // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 
         // message.channel.send('\n-----{1st}-----')
