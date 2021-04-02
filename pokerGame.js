@@ -86,7 +86,7 @@ module.exports ={
        // console.log(JSON.parse(players));
         players.forEach(pl => db.saveToDynamo(docClient,pl.username,'players', players));
 
-        return (message,deck)=> this.startPokerGame(message,deck);
+        return callback();
     
     });
 
