@@ -119,7 +119,7 @@ module.exports ={
         message.channel.send(river);
 
        //  message.reply('\n Remaining cards: ' + deck);
-       callback();
+       callback(db);
        
     },
 
