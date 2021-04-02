@@ -79,13 +79,10 @@ module.exports ={
 
             db.saveToDynamo(docClient,players[index].username,'pokerGame', JSON.parse(allData));
             x.send('\n Hand:\n'+ card1 + '\n' + card2);
+            db.saveToDynamo(docClient,x.username,'players', players)
         });
         
         message.channel.send('Starting poker game for ' + players);
-        //console.log(players);
-       // console.log(JSON.parse(players));
-        players.forEach(pl => db.saveToDynamo(docClient,pl.username,'players', players));
-
 
         return deck;
     });
