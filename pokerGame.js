@@ -102,8 +102,8 @@ module.exports ={
             getRiverCard(message2,river2,(message3,river3)=>{
                 getRiverCard(message3,river3,(message4,river4)=>{
                     getRiverCard(message4,river4,(resolve,reject)=>{
-
-                    }).catch(err);
+                        return resolve ? resolve : reject;
+                    })
                 }).catch(err);
             }).catch(err);
         }).catch(err);
