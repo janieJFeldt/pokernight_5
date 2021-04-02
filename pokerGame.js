@@ -63,7 +63,9 @@ module.exports ={
         
         message.channel.send('Starting poker game for ' + players);
 
-        callback(message,deck);
+        if(callback){
+            callback(message,deck);
+        }
     });
 
 
@@ -100,7 +102,7 @@ module.exports ={
             getRiverCard(message,river2,(message,river3)=>{
                 getRiverCard(message,river3,(message,river4)=>{
                     getRiverCard(message,river4,(message,river5)=>{
-                        getRiverCard(message,river5, ()=>{})
+                        getRiverCard(message,river5)
                     })
                 })
             })
