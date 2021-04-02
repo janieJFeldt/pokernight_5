@@ -55,7 +55,7 @@ let getRiverCard = (message, river, index) => {
 
 module.exports ={
 
-    createGame: function(message,deck, callback){
+    createGame: async function(message,deck, callback){
         message.react('👍').then(() => message.react('👎'));
         message.channel.send('If you would like to join, react with a thumbs-up!');
 
@@ -77,7 +77,7 @@ module.exports ={
             let userData = '{ "userId" : "' + players[index].id + '"}'
             let allData = '[' + handData + ',' + userData + ']';
 
-            db.saveToDynamo(docClient,players[index].username,'pokerGame', JSON.parse(allData));
+            await db.saveToDynamo(docClient,players[index].username,'pokerGame', JSON.parse(allData));
             x.send('\n Hand:\n'+ card1 + '\n' + card2);
             db.saveToDynamo(docClient,x.username,'players', players)
         });
