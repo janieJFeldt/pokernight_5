@@ -132,5 +132,9 @@ module.exports ={
 
 
        //  message.reply('\n Remaining cards: ' + deck);
+    },
+
+    getDeck: function(){
+        return getDeck();
     }
 }
