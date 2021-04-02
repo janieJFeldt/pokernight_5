@@ -99,6 +99,7 @@ module.exports ={
         let players =db.scanFromDynamo(message,docClient,'players');
 
 
+        console.log("in startgame fn");
         let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
 
         // function getItemFromDynamo(message, docClient){
