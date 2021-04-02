@@ -55,7 +55,7 @@ let getRiverCard = (message, river, index) => {
 
 module.exports ={
 
-    createGame: async function(message,deck, callback){
+    createGame: function(message,deck, callback){
         message.react('👍').then(() => message.react('👎'));
         message.channel.send('If you would like to join, react with a thumbs-up!');
 
@@ -68,7 +68,7 @@ module.exports ={
 
         message.channel.send(players + '\n Let\'s get ready to play!');
 
-        players.forEach((x,index)=>{
+        players.forEach(async (x,index)=>{
 
             
             let card1 = drawCard(deck);
