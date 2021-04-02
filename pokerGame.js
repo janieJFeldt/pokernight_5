@@ -97,16 +97,16 @@ module.exports ={
 
        // message.channel.send('You had\n' +card1 + '\n' + card2);
 
-    await getRiverCard(message,riverCards,(message,river1)=>{
-           getRiverCard(message,river1,(message,river2)=>{
-            getRiverCard(message,river2,(message,river3)=>{
-                getRiverCard(message,river3,(message,river4)=>{
-                    getRiverCard(message,river4,(message,river5)=>{
-                        getRiverCard(message,river5).catch(err);
-                    })
-                })
-            })
-        })
+    await getRiverCard(message,riverCards,(message1,river1)=>{
+           getRiverCard(message1,river1,(message2,river2)=>{
+            getRiverCard(message2,river2,(message3,river3)=>{
+                getRiverCard(message3,river3,(message4,river4)=>{
+                    getRiverCard(message4,river4,(message5,river5)=>{
+                        getRiverCard(message5,river5).catch(err);
+                    }).catch(err);
+                }).catch(err);
+            }).catch(err);
+        }).catch(err);
     });
 
 
