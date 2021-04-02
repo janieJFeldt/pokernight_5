@@ -110,6 +110,8 @@ module.exports ={
     })
 
 
+db.scanFromDynamo(message,docClient,'pokerGame');
+
         //await message.channel.send(river);
 
        //  message.reply('\n Remaining cards: ' + deck);
