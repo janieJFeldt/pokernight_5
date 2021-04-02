@@ -1,21 +1,8 @@
 require('dotenv').config();
-const AWS = require('aws-sdk');
 const Discord = require('discord.js');
 const poker = require('./pokerGame.js');
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
-
-AWS.config.update({
-  region: process.env.AWS_DEFAULT_REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-})
-
-
-const docClient = new AWS.DynamoDB.DocumentClient();
-
-const db = require('./dbActions.js');
-
 
 
 bot.login(TOKEN);
@@ -59,8 +46,8 @@ const decipherCommand = async message => {
       break;
       case('start'):
       await poker.createGame(message,deck, (message2,newDeck2) =>
-          { poker.startPokerGame(message2,newDeck2, ()=>{})});          
-          db.scanFromDynamo(message,docClient,'pokerGame');
+          { poker.startPokerGame(message2,newDeck2, (message3,db,docClient) => db.scanFromDynamo(message,docClient,'pokerGame');
+          )});          
 
       break;
     }
