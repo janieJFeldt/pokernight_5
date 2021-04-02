@@ -46,7 +46,8 @@ const decipherCommand = async message => {
       case('start'):
       
       let deck = poker.getDeck();
-      poker.createGame(message,deck,poker.startPokerGame);
+      let newDeck = await poker.createGame(message,deck);
+      await function(){poker.startPokerGame(message,newDeck);}
       
       break;
     }
