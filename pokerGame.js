@@ -97,12 +97,12 @@ module.exports ={
 
        // message.channel.send('You had\n' +card1 + '\n' + card2);
 
-       let river = await getRiverCard(message,riverCards,(message,river1)=>{
+    await getRiverCard(message,riverCards,(message,river1)=>{
            getRiverCard(message,river1,(message,river2)=>{
             getRiverCard(message,river2,(message,river3)=>{
                 getRiverCard(message,river3,(message,river4)=>{
                     getRiverCard(message,river4,(message,river5)=>{
-                        getRiverCard(message,river5)
+                        getRiverCard(message,river5).catch(err);
                     })
                 })
             })
@@ -110,7 +110,7 @@ module.exports ={
     });
 
 
-        await message.channel.send(river);
+        //await message.channel.send(river);
 
        //  message.reply('\n Remaining cards: ' + deck);
        callback(message,db,docClient);
