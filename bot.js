@@ -44,10 +44,10 @@ const decipherCommand = async message => {
         poker.startPokerGame(message);
       break;
       case('start'):
-      
+      let startFn = function(){poker.startPokerGame(message,newDeck);}
+
       let deck = poker.getDeck();
-      let newDeck = await poker.createGame(message,deck);
-      await function(){poker.startPokerGame(message,newDeck);}
+      let newDeck = await poker.createGame(message,deck).then(startFn);
       
       break;
     }
