@@ -55,8 +55,7 @@ let getRiverCard = (message, river, index) => {
 
 module.exports ={
 
-    createGame: function(message){
-
+    createGame: function(message,callback){
         message.react('👍').then(() => message.react('👎'));
         message.channel.send('If you would like to join, react with a thumbs-up!');
 
@@ -88,6 +87,7 @@ module.exports ={
         //console.log(players);
        // console.log(JSON.parse(players));
         players.forEach(pl => db.saveToDynamo(docClient,pl.username,'players', players));
+        callback();
     
     });
 
