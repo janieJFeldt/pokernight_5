@@ -85,7 +85,7 @@ module.exports ={
         message.channel.send('Starting poker game for ' + players);
         console.log(players);
        // console.log(JSON.parse(players));
-        db.saveToDynamo(docClient,'id_0','players', JSON.parse({'players' : players}));
+        db.saveToDynamo(docClient,'id_0','players', players);
     
     });
 
