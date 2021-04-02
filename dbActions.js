@@ -1,16 +1,15 @@
 
 
 module.exports ={
-  getFromDynamo: (message,docClient,keyValue,tableName) => {
+  scanFromDynamo: (message,docClient,tableName) => {
 
-      const params = {
-      Key: {"id":keyValue},
-      TableName: tableName,
-      
-  }
+  var params = {
+    TableName : tableName
+    //FilterExpression : 'Year = :this_year',
+  };
 
 
-  var result = docClient.get(params, (error, data) => {
+  var result = docClient.scan(params, (error, data) => {
     if (!error) {
       // Finally, return a message to the user stating that the app was saved
       message.channel.send("<@" + data.Item.id + "> had " + data.Item.info.Hand);

@@ -96,16 +96,16 @@ module.exports ={
 
      startPokerGame: function(message){
         let deck = getDeck();
-        let players =db.getFromDynamo(message,docClient,'players');
+        let players =db.scanFromDynamo(message,docClient,'players');
 
 
         let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
 
-        function getItemFromDynamo(message, docClient){
-            let result = db.getFromDynamo(message, docClient,'277622752196689921','pokerGame');
-            message.channel.send('<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand);
-            console.log(result);
-        }
+        // function getItemFromDynamo(message, docClient){
+        //     let result = db.scanFromDynamo(message, docClient,'277622752196689921','pokerGame');
+        //     message.channel.send('<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand);
+        //     console.log(result);
+        // }
 
        // players.forEach(getItemFromDynamo);
        // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
