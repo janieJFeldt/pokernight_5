@@ -55,7 +55,7 @@ let getRiverCard = (message, river, index) => {
 
 module.exports ={
 
-    createGame: function(message,deck){
+    createGame: function(message,deck,callback){
         message.react('👍').then(() => message.react('👎'));
         message.channel.send('If you would like to join, react with a thumbs-up!');
 
