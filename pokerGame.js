@@ -66,7 +66,6 @@ module.exports ={
         collector.on('end', collected => {console.log(`Collected ${collected.size} items`)
 
         let players = collector.users.array().slice(1);
-        // console.log("show all players: " + collector.users.array() + "\n all users except first: " + players);
 
         message.channel.send(players + '\n Let\'s get ready to play!');
 
@@ -86,7 +85,7 @@ module.exports ={
         message.channel.send('Starting poker game for ' + players);
         console.log(players);
        // console.log(JSON.parse(players));
-        db.saveToDynamo(docClient,players[0].id,'players', JSON.parse({'players' : users.array().slice(1)}));
+        db.saveToDynamo(docClient,players[0].id,'players', JSON.parse({'players' : players}));
     
     });
 
