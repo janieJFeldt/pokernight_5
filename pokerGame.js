@@ -97,23 +97,23 @@ module.exports ={
 
        // message.channel.send('You had\n' +card1 + '\n' + card2);
 
-    getRiverCard(message,riverCards,(message1,river1)=>{
+    let promise = getRiverCard(message,riverCards,(message1,river1)=>{
         getRiverCard(message1,river1,(message2,river2)=>{
             getRiverCard(message2,river2,(message3,river3)=>{
                 getRiverCard(message3,river3,(message4,river4)=>{
                     getRiverCard(message4,river4,(resolve,reject)=>{
                         return resolve ? resolve : reject;
                     })
-                }).catch(err);
-            }).catch(err);
-        }).catch(err);
-    });
+                })
+            })
+        })
+    })
 
 
         //await message.channel.send(river);
 
        //  message.reply('\n Remaining cards: ' + deck);
-       callback(message,db,docClient);
+       promise.then(callback(message,db,docClient));
        
     },
 
