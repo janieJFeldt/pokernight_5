@@ -55,7 +55,7 @@ let getRiverCard = (message, river, index) => {
 
 module.exports ={
 
-    createGame: function(message){
+    createGame: function(message,deck){
         message.react('👍').then(() => message.react('👎'));
         message.channel.send('If you would like to join, react with a thumbs-up!');
 
@@ -67,8 +67,6 @@ module.exports ={
         let players = collector.users.array().slice(1);
 
         message.channel.send(players + '\n Let\'s get ready to play!');
-
-        let deck = getDeck();
 
         players.forEach((x,index)=>{
 
