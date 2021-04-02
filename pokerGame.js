@@ -91,11 +91,10 @@ module.exports ={
     },
 
      startPokerGame: function(message,deck){
-        let players =db.scanFromDynamo(message,docClient,'players');
+        let players =db.scanFromDynamo(message,docClient,'pokerGame');
 
 
-        console.log("startgame:" + players);
-        console.log("in startgame fn");
+        console.log("startgame:" + JSON.parse(players));
         let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
 
         // function getItemFromDynamo(message, docClient){
@@ -121,7 +120,6 @@ module.exports ={
        // message.channel.send('You had\n' +card1 + '\n' + card2);
 
         message.channel.send(river);
-
 
        //  message.reply('\n Remaining cards: ' + deck);
     },
