@@ -96,7 +96,7 @@ module.exports ={
 
      startPokerGame: function(message){
         let deck = getDeck();
-        let players =db.getFromDynamo(message,docClient,1,'players');
+        let players =db.getFromDynamo(message,docClient,'players');
 
 
         let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
