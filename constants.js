@@ -1,5 +1,5 @@
 module.exports ={
-cards = [
+cards: [
     'Ace',
     '2',
     '3',
@@ -15,14 +15,14 @@ cards = [
     'King'
 ],
 
-suits = [
+suits: [
     '<:clobz:823753747300614214>',
     '<:dimmadimonds:823753747372703785>',
     '<:hertz:823753747574292521>',
     '<:spudz:823753747385286676>'
 ],
 
-hands = [
+hands: [
     'high card',
     'pair',
     'two pair',
