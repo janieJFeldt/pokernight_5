@@ -45,7 +45,8 @@ const decipherCommand = async message => {
         poker.startPokerGame(message,deck);
       break;
       case('start'):
-      await poker.createGame(message,deck, (message2,newDeck2) => poker.startPokerGame(message2,newDeck2));
+      await poker.createGame(message,deck, (message2,newDeck2) => poker.startPokerGame(message2,newDeck2, ()=>db.scanFromDynamo(message,docClient,'pokerGame')
+      ));
       
       break;
     }
