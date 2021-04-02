@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const constants = require('./constants');
 
 AWS.config.update({
   region: process.env.AWS_DEFAULT_REGION,
@@ -10,32 +11,9 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 
 const db = require('./dbActions.js');
 
-let cards = [
-    'Ace',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    'Jack',
-    'Queen',
-    'King'
-]
-
-let suits = [
-    '<:clobz:823753747300614214>',
-    '<:dimmadimonds:823753747372703785>',
-    '<:hertz:823753747574292521>',
-    '<:spudz:823753747385286676>'
-]
-
 let getDeck = () => {
     let newDeck = [];
-    suits.forEach(x => newDeck.push(cards.map(y=> x + y)));
+    constants.suits.forEach(x => newDeck.push(constants.cards.map(y=> x + y)));
 
     return newDeck;
 
@@ -47,10 +25,11 @@ let drawCard = deck => {
     return deck[rand].splice(rand2,1);
 }
 
-let getRiverCard = (message, river, index) => {
+let getRiverCard = (message, river, callback) => {
 
-    message.channel.send(`\n[${river.slice(index,index+1)}]`);
+    message.channel.send(`\n[${river.splice(0,1)}]`);
 
+    callback(message,river);
 }
 
 module.exports ={
@@ -92,7 +71,7 @@ module.exports ={
 
      startPokerGame: async function(message,deck, callback){
 
-        let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
+        let riverCards = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
 
         // function getItemFromDynamo(message, docClient){
         //     let result = db.scanFromDynamo(message, docClient,'277622752196689921','pokerGame');
@@ -115,6 +94,11 @@ module.exports ={
         // getRiverCard(message, river,4);
 
        // message.channel.send('You had\n' +card1 + '\n' + card2);
+
+       let river = await getRiverCard(message,riverCards,(message,river1)=>{
+           getRiverCard(message,river1,(message,river2)=>{
+            getRiverCard(message,river2)})
+           });
 
         await message.channel.send(river);
 
