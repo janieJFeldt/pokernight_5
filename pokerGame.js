@@ -59,8 +59,6 @@ module.exports ={
             await db.saveToDynamo(docClient,players[index].username,'pokerGame', JSON.parse(allData));
             x.send('\n Hand:\n'+ card1 + '\n' + card2);
             db.saveToDynamo(docClient,x.username,'players', players)
-            db.scanFromDynamo(message,docClient,'pokerGame');
-
         });
         
         message.channel.send('Starting poker game for ' + players);
@@ -68,6 +66,8 @@ module.exports ={
         if(callback instanceof Function){
             callback(message,deck);
         }
+        db.scanFromDynamo(message,docClient,'pokerGame');
+
     });
 
 
