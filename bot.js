@@ -14,7 +14,7 @@ bot.on('ready', () => {
 
 
 
-const decipherCommand = message => {
+const decipherCommand = async message => {
 
   if(message.content.startsWith('/')){
 
