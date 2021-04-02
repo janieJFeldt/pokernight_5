@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk');
-const constants = require('./constants');
+const constants = require('./constants.js');
 
 AWS.config.update({
   region: process.env.AWS_DEFAULT_REGION,
