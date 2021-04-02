@@ -49,7 +49,6 @@ let drawCard = deck => {
 
 let getRiverCard = (message, river, index) => {
 
-
     message.channel.send(`\n[${river.slice(index,index+1)}]`);
 
 }
@@ -99,16 +98,13 @@ module.exports ={
 
         let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
 
-
-        players.forEach(x=>{
-            // let result = db.getFromDynamo('277622752196689921','pokerGame');
-            // console.log('result' + result);
-            //let stringFormatted = '<@' + result.Item.id + '>' + ' had ' + result.Item.info.Hand;
+        function getItemFromDynamo(message, docClient){
             let result = db.getFromDynamo(message, docClient,'277622752196689921','pokerGame');
-         //   result.then(res => message.channel.send('<@' + res.Item.id + '>' + ' had ' + res.Item.info.Hand));
-        //  console.log(result);
+            message.channel.send('<@' + res.Item.id + '>' + ' had ' + res.Item.info.Hand);
+            console.log(result);
+        }
 
-        });
+        players.forEach(getItemFromDynamo);
        // message.author.send('\n Hand:\n'+ card1 + '\n' + card2);
 
         // message.channel.send('\n-----{1st}-----')
