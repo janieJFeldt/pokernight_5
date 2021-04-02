@@ -113,7 +113,7 @@ module.exports ={
         //await message.channel.send(river);
 
        //  message.reply('\n Remaining cards: ' + deck);
-       promise.then(callback(message,db,docClient));
+       return callback(message,db,docClient);
        
     },
 
