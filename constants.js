@@ -1,5 +1,5 @@
-
-let cards = [
+module.exports ={
+cards = [
     'Ace',
     '2',
     '3',
@@ -13,16 +13,16 @@ let cards = [
     'Jack',
     'Queen',
     'King'
-]
+],
 
-let suits = [
+suits = [
     '<:clobz:823753747300614214>',
     '<:dimmadimonds:823753747372703785>',
     '<:hertz:823753747574292521>',
     '<:spudz:823753747385286676>'
-]
+],
 
-let hands = [
+hands = [
     'high card',
     'pair',
     'two pair',
@@ -34,3 +34,5 @@ let hands = [
     'straight flush',
     'royal flush'
 ]
+
+}
