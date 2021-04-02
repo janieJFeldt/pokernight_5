@@ -87,22 +87,12 @@ module.exports ={
         //console.log(players);
        // console.log(JSON.parse(players));
         players.forEach(pl => db.saveToDynamo(docClient,pl.username,'players', players));
-
-        return (message,err)=>{
-
-            if(!err){
-                return message;
-            }
-            return err;
-        }
-    
     });
 
 
     },
 
-     startPokerGame: function(message){
-        let deck = getDeck();
+     startPokerGame: function(message,deck){
         let players =db.scanFromDynamo(message,docClient,'players');
 
 
