@@ -30,6 +30,7 @@ const decipherCommand = async message => {
 
   }
   else if (message.content.startsWith('!')){
+    var deck = poker.getDeck();
     switch(message.content.substr(1)){
       case('kick'):
         if (message.mentions.users.size) {
@@ -41,11 +42,9 @@ const decipherCommand = async message => {
       break;
 
       case('poker'):
-      let deck = poker.getDeck();
-        poker.startPokerGame(message);
+        poker.startPokerGame(message,deck);
       break;
       case('start'):
-      let deck = poker.getDeck();
       await poker.createGame(message,deck, (message2,newDeck2) => poker.startPokerGame(message2,newDeck2));
       
       break;
