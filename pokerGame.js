@@ -63,7 +63,7 @@ module.exports ={
         
         message.channel.send('Starting poker game for ' + players);
 
-        if(callback.Type === Function){
+        if(callback instanceof Function){
             callback(message,deck);
         }
     });
