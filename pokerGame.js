@@ -90,7 +90,7 @@ module.exports ={
 
     },
 
-     startPokerGame: function(message,deck, callback){
+     startPokerGame: async function(message,deck, callback){
 
         let river = [drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck),drawCard(deck)];
 
@@ -116,7 +116,7 @@ module.exports ={
 
        // message.channel.send('You had\n' +card1 + '\n' + card2);
 
-        message.channel.send(river);
+        await message.channel.send(river);
 
        //  message.reply('\n Remaining cards: ' + deck);
        callback(message,db,docClient);
