@@ -83,9 +83,8 @@ module.exports ={
         });
         
         message.channel.send('Starting poker game for ' + players);
-        db.saveToDynamo(docClient,'deck','pokerGame', deck);
 
-        callback();
+        callback(message,deck);
     });
 
 
