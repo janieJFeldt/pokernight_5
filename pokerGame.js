@@ -98,7 +98,7 @@ module.exports ={
        // message.channel.send('You had\n' +card1 + '\n' + card2);
        console.log(JSON.stringify(riverCards));
         let dealerData = `{ "Hand" : ${JSON.stringify(riverCards)} }`;
-       await db.saveToDynamo(docClient,'DEALER','pokerGame', JSON.parse(dealerData));
+       await db.saveToDynamo(docClient,'DEALER','pokerGame', dealerData);
        
     let promise = await getRiverCard(message,riverCards,(message1,river1)=>{
         getRiverCard(message1,river1,(message2,river2)=>{
