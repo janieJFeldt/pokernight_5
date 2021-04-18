@@ -1,5 +1,6 @@
 
 let scoringHand = (hand, river) => {
+console.log("SCORINGHANDs:\n");
 console.log(hand);
 console.log(river);
 }
