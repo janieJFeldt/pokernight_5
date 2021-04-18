@@ -18,7 +18,7 @@ let getFromDynamo = (message,docClient,tableName) =>{
 
       console.log("DATA from GET:\n");
       console.log(data);
-      return data[0].Hand;
+      return data.Item.info[0].Hand;
     }else
     {
       throw "Unable to scan records, err" + error
