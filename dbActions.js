@@ -7,7 +7,8 @@ console.log(river);
 
 let getFromDynamo = (message,docClient,tableName) =>{
   var params = {
-    TableName : tableName
+    TableName : tableName,
+    Key = "brdg"
   }
 
   var result = docClient.get(params, (error, data) => {
