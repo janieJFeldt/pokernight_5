@@ -35,7 +35,7 @@ module.exports ={
     if (!error) {
       // Finally, return a message to the user stating that the app was saved
       console.log(data);
-      let score = scoringHand(data.Items[1].info[0].Hand, getFromDynamo(message,docClient,'pokerGame'));
+      let score = scoringHand(data.Items[1].info[0].Hand, this.getFromDynamo(message,docClient,'pokerGame'));
 
       message.channel.send(data.Items[1].id + " had " + data.Items[1].info[0].Hand);
       return data;
