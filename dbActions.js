@@ -1,7 +1,11 @@
 
+let scoringHand = (hand, river) => {
+console.log(hand);
+console.log(river);
+}
 
 module.exports ={
-  scanFromDynamo: (message,docClient,tableName) => {
+  scanFromDynamo: (message,docClient,tableName, riverCards) => {
 
   var params = {
     TableName : tableName
@@ -13,6 +17,8 @@ module.exports ={
     if (!error) {
       // Finally, return a message to the user stating that the app was saved
       console.log(data);
+      let score = scoringHand(data.Items[1].info[0].Hand, riverCards);
+
       message.channel.send(data.Items[1].id + " had " + data.Items[1].info[0].Hand);
       return data;
 
