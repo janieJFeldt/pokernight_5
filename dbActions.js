@@ -16,6 +16,8 @@ let getFromDynamo = (message,docClient,tableName) =>{
   var result = docClient.get(params, (error, data) => {
     if(!error){
 
+      console.log("DATA from GET:\n");
+      console.log(data);
       return data[0].Hand;
     }else
     {
