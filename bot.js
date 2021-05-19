@@ -18,6 +18,7 @@ const decipherCommand = async message => {
   if (message.content.startsWith('!')){
     switch(message.content.substr(1)){
       case('start'):{
+       console.log(TOKEN);
        fetch("https://discord.com/api/v8/channels/662756581489770530/invites", {
                     method: "POST",
                     body: JSON.stringify({
