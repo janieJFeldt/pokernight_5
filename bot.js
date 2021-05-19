@@ -18,7 +18,7 @@ const decipherCommand = async message => {
   if (message.content.startsWith('!')){
     switch(message.content.substr(1)){
       case('start'):{
-        console.log(fetch("https://discord.com/api/v8/channels/662756581489770530/invites", {
+       fetch("https://discord.com/api/v8/channels/662756581489770530/invites", {
                     method: "POST",
                     body: JSON.stringify({
                         max_age: 86400,
@@ -32,7 +32,9 @@ const decipherCommand = async message => {
                         "Authorization": TOKEN,
                         "Content-Type": "application/json"
                     }
-                }));
+                }).then(b => {
+         console.log(b);
+       });
       }
       break;
     }
