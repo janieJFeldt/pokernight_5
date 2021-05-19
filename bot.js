@@ -18,7 +18,7 @@ const decipherCommand = async message => {
   if (message.content.startsWith('!')){
     switch(message.content.substr(1)){
       case('start'):{
-        var channel=message.member.voice.channel;
+        var channel=message.member.voiceChannel;
         if(channel)
         {
          fetch("https://discord.com/api/v8/channels/${channel.id}/invites", {
