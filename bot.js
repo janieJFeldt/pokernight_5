@@ -14,10 +14,10 @@ bot.on('ready', () => {
 
 
 const decipherCommand = async message => {
-  else if (message.content.startsWith('!')){
+  if (message.content.startsWith('!')){
     switch(message.content.substr(1)){
       case('start'):{
-        console.log(fetch("https://discord.com/api/v8/channels/662756581489770530/invites", {
+        message.reply(fetch("https://discord.com/api/v8/channels/662756581489770530/invites", {
                     method: "POST",
                     body: JSON.stringify({
                         max_age: 86400,
