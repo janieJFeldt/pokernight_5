@@ -36,8 +36,8 @@ const decipherCommand = async message => {
                           "Content-Type": "application/json"
                       }
                   }).then(b => {
-           var j=b.json();
-           message.channel.send(`[Click to open Poker Night in ${channel.name}](<https://discord.gg/${j.code}>)`);
+           var j=JSON.parse(b);
+           message.channel.send(`[Click to open Poker Night in ${channel.name}](https://discord.gg/${j.code})`);
          });
         } else message.reply("You need to be in voice chat!");
       }
@@ -61,8 +61,8 @@ const decipherCommand = async message => {
                           "Content-Type": "application/json"
                       }
                   }).then(b => {
-           var j=b.json();
-           message.channel.send(`[Click to open Poker Night in ${channel.name}](<https://discord.gg/${j.code}>)`);
+           var j=JSON.parse(b);
+           message.channel.send(`[Click to open Poker Night in ${channel.name}](https://discord.gg/${j.code})`);
          });
         } else message.reply("You need to be in voice chat!");
       }
