@@ -13,8 +13,7 @@ bot.on('ready', () => {
 });
 
 
-
-const decipherCommand = async message => {
+bot.on('message', message => {
     if (message.content.startsWith('!')){
         switch(message.content.substr(1)){
             case('poker'):{
@@ -73,8 +72,4 @@ const decipherCommand = async message => {
         }
 
     }
-}
-
-bot.on('message', msg => {
-    decipherCommand(msg);
 });
