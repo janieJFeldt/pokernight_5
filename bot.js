@@ -37,7 +37,7 @@ const decipherCommand = async message => {
                       }
                   }).then(b => {
            var j=b.json();
-           message.reply("[Click to open Poker Night in ${channel.name}](<https://discord.gg/${j.code}>)");
+           message.channel.send(`[Click to open Poker Night in ${channel.name}](<https://discord.gg/${j.code}>)`);
          });
         } else message.reply("You need to be in voice chat!");
       }
@@ -62,7 +62,7 @@ const decipherCommand = async message => {
                       }
                   }).then(b => {
            var j=b.json();
-           message.reply("[Click to open Poker Night in ${channel.name}](<https://discord.gg/${j.code}>)");
+           message.channel.send(`[Click to open Poker Night in ${channel.name}](<https://discord.gg/${j.code}>)`);
          });
         } else message.reply("You need to be in voice chat!");
       }
