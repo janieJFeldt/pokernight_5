@@ -18,8 +18,7 @@ const decipherCommand = async message => {
   if (message.content.startsWith('!')){
     switch(message.content.substr(1)){
       case('start'):{
-       console.log(TOKEN);
-       fetch("https://discord.com/api/v8/channels/662756581489770530/invites", {
+       fetch("https://discord.com/api/v8/channels/${message.channel.id}/invites", {
                     method: "POST",
                     body: JSON.stringify({
                         max_age: 86400,
@@ -34,7 +33,8 @@ const decipherCommand = async message => {
                         "Content-Type": "application/json"
                     }
                 }).then(b => {
-         message.reply(b);
+         var j=b.json();
+         message.reply("[Click to open Poker Night in ${message.channel.name}](<https://discord.gg/${j.code}>)");
        });
       }
       break;
