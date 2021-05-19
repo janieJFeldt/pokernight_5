@@ -1,6 +1,5 @@
 require('dotenv').config();
 const Discord = require('discord.js');
-const poker = require('./pokerGame.js');
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 
@@ -15,39 +14,25 @@ bot.on('ready', () => {
 
 
 const decipherCommand = async message => {
-
-  if(message.content.startsWith('/')){
-
-    switch(message.content.substr(1)){
-      case('hi'):
-        message.reply('hello there');
-      break;
-      case('stats'):
-        db.saveToDynamo(docClient, db.getDataObject(message));
-        message.reply('ultimate master poker player');
-      break;
-    }
-
-  }
   else if (message.content.startsWith('!')){
-    var deck = poker.getDeck();
     switch(message.content.substr(1)){
-      case('kick'):
-        if (message.mentions.users.size) {
-          const taggedUser = msg.mentions.users.first();
-          message.channel.send(`You wanted to kick: ${taggedUser.username}`);
-        } else {
-          message.reply('Please tag a valid user!');
-        }
-      break;
-
-      case('poker'):
-        poker.startPokerGame(message,deck);
-      break;
-      case('start'):
-      await poker.createGame(message,deck, (message2,newDeck2) =>
-          { poker.startPokerGame(message2,newDeck2, (message3,db,docClient, riverCards) =>
-             db.scanFromDynamo(message,docClient,'pokerGame', riverCards))});
+      case('start'):{
+        console.log(fetch("https://discord.com/api/v8/channels/662756581489770530/invites", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        max_age: 86400,
+                        max_uses: 0,
+                        target_application_id: "755827207812677713",  // Youtube Together: 755600276941176913 | Poker Night: 755827207812677713 | Betrayal.io: 773336526917861400 | Fishington.io: 814288819477020702 
+                        target_type: 2,
+                        temporary: false,
+                        validate: null
+                    }),
+                    headers: {
+                        "Authorization": TOKEN,
+                        "Content-Type": "application/json"
+                    }
+                }));
+      }
       break;
     }
   
