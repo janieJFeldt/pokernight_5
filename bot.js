@@ -17,7 +17,7 @@ bot.on('ready', () => {
 const decipherCommand = async message => {
   if (message.content.startsWith('!')){
     switch(message.content.substr(1)){
-      case('start'):{
+      case('poker'):{
         var channel=message.member.voiceChannel;
         if(channel)
         {
@@ -27,6 +27,31 @@ const decipherCommand = async message => {
                           max_age: 86400,
                           max_uses: 0,
                           target_application_id: "755827207812677713",  // Youtube Together: 755600276941176913 | Poker Night: 755827207812677713 | Betrayal.io: 773336526917861400 | Fishington.io: 814288819477020702 
+                          target_type: 2,
+                          temporary: false,
+                          validate: null
+                      }),
+                      headers: {
+                          "Authorization": "Bot "+TOKEN,
+                          "Content-Type": "application/json"
+                      }
+                  }).then(b => {
+           var j=b.json();
+           message.reply("[Click to open Poker Night in ${channel.name}](<https://discord.gg/${j.code}>)");
+         });
+        } else message.reply("You need to be in voice chat!");
+      }
+      break;
+      case('yt'):{
+        var channel=message.member.voiceChannel;
+        if(channel)
+        {
+         fetch("https://discord.com/api/v8/channels/${channel.id}/invites", {
+                      method: "POST",
+                      body: JSON.stringify({
+                          max_age: 86400,
+                          max_uses: 0,
+                          target_application_id: "755600276941176913",  // Youtube Together: 755600276941176913 | Poker Night: 755827207812677713 | Betrayal.io: 773336526917861400 | Fishington.io: 814288819477020702 
                           target_type: 2,
                           temporary: false,
                           validate: null
