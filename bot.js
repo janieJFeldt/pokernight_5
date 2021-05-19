@@ -30,7 +30,7 @@ const decipherCommand = async message => {
                         validate: null
                     }),
                     headers: {
-                        "Authorization": TOKEN,
+                        "Authorization": "Bot "+TOKEN,
                         "Content-Type": "application/json"
                     }
                 }).then(b => {
