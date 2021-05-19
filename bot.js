@@ -34,7 +34,7 @@ const decipherCommand = async message => {
                         "Content-Type": "application/json"
                     }
                 }).then(b => {
-         console.log(b);
+         message.reply(b);
        });
       }
       break;
