@@ -18,8 +18,10 @@ const decipherCommand = async message => {
   if (message.content.startsWith('!')){
     switch(message.content.substr(1)){
       case('start'):{
-       if (message.mentions.channels.size >0) {
-         fetch("https://discord.com/api/v8/channels/${message.mentions.members.first().id}/invites", {
+        var channel=message.member.voice.channel;
+        if(channel)
+        {
+         fetch("https://discord.com/api/v8/channels/${channel.id}/invites", {
                       method: "POST",
                       body: JSON.stringify({
                           max_age: 86400,
@@ -35,9 +37,9 @@ const decipherCommand = async message => {
                       }
                   }).then(b => {
            var j=b.json();
-           message.reply("[Click to open Poker Night in ${message.mentions.members.first().name}](<https://discord.gg/${j.code}>)");
+           message.reply("[Click to open Poker Night in ${channel.name}](<https://discord.gg/${j.code}>)");
          });
-       }
+        } else message.reply("You need to be in voice chat!");
       }
       break;
     }
